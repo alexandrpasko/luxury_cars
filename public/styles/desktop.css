@@ -1,0 +1,338 @@
+/*
+
+   ALEXAN    DR         PASKOALE   XA     ND    RPASKO    AL    EX   ANDRPA     SKOALEX 
+  AL    EX   AN         DR          PA   SK    OA    LE   XAN   DR   PA   SK    OA    LE
+  AL    EX   AN         DR           PA SK     OA    LE   XAND  RP   AS    KO   AL    EX
+  ALEXANDR   PA         SKOALEXA      NDR      PASKOALE   XA ND RP   AS    KO   ALEXAND
+  AL    EX   AN         DR           PA SK     OA    LE   XA  NDRP   AS    KO   AL  EX 
+  AL    EX   AN         DR          PA   SK    OA    LE   XA   NDR   PA   SK    OA   LE
+  AL    EX   ANDRPASK   OALEXAND   RP     AS   KO    AL   EX    AN   DRPASK     OA    LE
+
+
+  ALEXAND     RPASKO     ALEXAND   RP    AS    KOALEX
+  AL    EX   AN    DR   PA         SK   OA    LE    XA
+  AL    EX   AN    DR   PA         SK  OA     LE    XA 
+  ALEXAND    RP    AS    KOALEX    ANDRP      AS    KO
+  AL         EXANDRPA         SK   OA  LE     XA    ND
+  AL         EX    AN         DR   PA   SK    OA    LE
+  AL         EX    AN   DRPASKO    AL    EX    ANDRPA
+ 
+id="Alexandr_Pasko_Web_Development_Diploma_2019";
+font-family: "ALEXANDR_PASKO", "no_need_backup_runs_everywhere";
+Cool font, hey?
+
+*/
+  
+body{
+  font-family: Montserrat, Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  margin: 0px;
+}
+nav, header, section, footer{
+  display: block;
+}
+h1, h2, h3{
+  color: #fff;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+
+}
+.wrapper{ /*wrapper areas in all sections*/
+  width: 960px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 1px 0px;
+  min-height: 80px;
+}
+
+/*navigation*/
+nav{  /*navigation is fixed in all pages*/
+  z-index: 10;
+  background-color: rgba(14, 14, 14, 0.9);
+  position: fixed;
+  width: 100%;
+  top: 0px;
+}
+nav .wrapper{ /*content container in wrapper area of navigation*/
+  text-align: right;
+  position: relative;
+  height: 90px;
+}
+div#logo_container{ /*logo*/
+  position: absolute;
+  top: 25px;
+}
+#navigation{
+  margin-right: 130px;
+}
+#navigation li{ /*navigation elements*/
+  display: inline-block;
+  margin-top: 18px;
+  list-style-type: none;
+}
+a.nav_links{ /*navigation links*/
+  color: #6b6969;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 10px 15px;
+  border-radius: 20px;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+a.nav_links:hover, /*need this to overwrite style for active page color, which is embedded on each page, as it is different on each page*/
+nav a#home:hover,
+nav a#sale:hover,
+nav a#rent:hover,
+nav a#catalog:hover,
+nav a#testdrive:hover{
+  color: #fff;
+}
+.user_icon{
+  display: block;
+  position: absolute;
+  top: 28px;
+  right: 0px;
+  border: 2px solid #846a2a;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+}
+a.user_icon:nth-of-type(2){
+  right: 40px;
+}
+/* search feature */
+form.search_form{
+  display: none;
+}
+form.visible{
+  display: block;
+}
+input.search_input{
+  background-color: #e4e4e4;
+  position: absolute;
+  right: 80px;
+  top: 28px;
+  height: 30px;
+  width: 180px;
+  border: 2px solid #846a2a;
+  border-radius: 40px 40px 40px 40px;
+  padding: 0px;
+  padding-left: 8px;
+  color: #0e0e0e;
+}
+div.search_div{
+  position: absolute;
+  top: 28px;
+  right: 80px;
+  border: 2px solid #846a2a;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  background-color: rgba(255, 255, 255, 0);
+  box-sizing: unset;
+  padding: 0px;
+}
+button.search_button{
+  position: absolute;
+  top: 28px;
+  right: 80px;
+  border: 2px solid #846a2a;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  background-color: rgba(14, 14, 14, 0.95);
+  box-sizing: unset;
+  padding: 0px;
+}
+.user_icon i
+{
+  color: #846a2a;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+.user_icon:hover i{
+  color: #fff;
+}
+a.current_page{
+  color: #846a2a;
+}
+div.flash_success{
+  width: 100%;
+  position: absolute;
+  top: 90px;
+  background-color: rgba(100, 255, 100, 0.8);
+  -webkit-animation: flash_message 7s ease forwards;
+  animation: flash_message 7s ease forwards;
+}
+div.flash_success h3{
+  color: #fff;
+  text-align: center;
+}
+div.flash_danger{
+  width: 100%;
+  position: absolute;
+  top: 90px;
+  background-color: rgba(255, 100, 100, 0.8);
+  -webkit-animation: flash_message 7s ease forwards;
+  animation: flash_message 7s ease forwards;
+}
+div.flash_danger h3{
+  color: #fff;
+  text-align: center;
+}
+@-webkit-keyframes flash_message {
+  0%{
+    opacity: 0;
+  }
+  10%{
+    opacity: 1;
+  }
+  90%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+  }
+}
+@keyframes flash_message {
+  0%{
+    opacity: 0;
+  }
+  10%{
+    opacity: 1;
+  }
+  90%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+  }
+}
+/*footer*/
+footer{
+  position: relative;
+  padding-top: 30px;
+}
+div#logofooter{
+  float: left;
+  margin-top: 20px;
+}
+footer ul.footerlinks{
+  float: right;
+  margin-top: 0px;
+  list-style-type: none;
+  text-align: center;
+}
+footer .mainlinks a{ /*upper level links*/
+  color: #846a2a;
+  font-size: 13px;
+  text-transform: uppercase;
+  line-height: 4em;
+}
+footer li a{
+  color: #6b6969;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  line-height: 2em;
+}
+footer a:hover{
+  color: #aaa;
+}
+.clear{ /*need this to clear after floated ellements*/
+  clear: both;
+  margin-bottom: 30px;
+}
+.line{
+  height: 1px;
+  width: 100%;
+  background-color: #e4e4e4;
+}
+.bottomlinks{
+  float: right;
+}
+.copyright{
+  float: left;
+}
+.bottomlinks a,
+footer p{
+  color: #6b6969;
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 2em;
+  margin: 1em;
+}
+form p.errors{
+  color: #f00;
+  font-size: 0.75em;
+  margin-top: 0px;
+}
+h3.comment_header{
+  color: #0e0e0e;
+  letter-spacing: normal;
+}
+i.fas{
+  color: #846a2a;
+}
+@media screen and (max-width: 959px){
+  .wrapper{
+    width: 100%;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  a.user_icon:nth-of-type(1){
+    right: 30px;
+  }
+  a.user_icon:nth-of-type(2){
+    right: 70px;
+  }
+  div.search_div,
+  input.search_input,
+  button.search_button{
+    right: 110px;
+  }
+  div.flash_success h3,
+  div.flash_danger h3{
+    letter-spacing: 0em;
+    font-weight: 400;
+  }
+}
+@media screen and (max-width: 880px){
+  a.nav_links{
+    padding: 10px 8px;
+  }
+  footer{
+    padding-top: 12px;
+  }
+  div#logofooter{
+    float: none;
+    margin: 0 auto;
+    position: absolute;
+    top: 224px;
+  }
+  footer ul.footerlinks{
+    float: left;
+    margin-left: -40px;
+    margin-bottom: 0px;
+    width: 20%;
+    text-align: center;
+  }
+  .copyright{
+    float: none;
+    text-align: right;
+    margin-right: 0px;
+    margin-top: 0px;
+  }
+  .bottomlinks{
+    float: none;
+    text-align: right;
+    margin-right: -1em;
+    margin-bottom: 0.5em;
+  }
+}
