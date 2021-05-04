@@ -18,9 +18,6 @@ function dd($var)
 	print_r($var);
 
 	echo '</pre>';
-
-	// die;
-	// die('here could be message');
 }
 
 //safely escape possibly tainted strings
